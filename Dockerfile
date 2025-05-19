@@ -15,7 +15,7 @@ RUN apt-get update && apt-get install -y git
 RUN if [ -n "$GITHUB_USERNAME" ] && [ -n "$GITHUB_TOKEN" ]; then \
     git clone https://$GITHUB_USERNAME:$GITHUB_TOKEN@github.com/rafael-araujo/management-order.git .; \
   else \
-    git clone https://github.com/rafael-araujo/order-management.git .; \
+    git clone https://github.com/rafael-araujo/management-order.git .; \
   fi
 
 # Limpe o cache do apt após a instalação do git

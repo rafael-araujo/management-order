@@ -1,4 +1,4 @@
-package com.hexagonal.template.infrastructure.internal.config;
+package com.hexagonal.template.infrastructure.config;
 
 import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.info.Info;

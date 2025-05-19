@@ -1,4 +1,5 @@
-package com.hexagonal.template.infrastructure.adapter.controller.model.request;
+package com.hexagonal.template.infrastructure.adapter.controller.model.response;
+
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -11,7 +12,7 @@ import lombok.Setter;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class ExampleRequest {
+public class OrderResponse {
 
     private Long id;
     private String name;

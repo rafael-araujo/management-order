@@ -1,4 +1,4 @@
-package com.hexagonal.template.infrastructure.internal.config;
+package com.hexagonal.template.infrastructure.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

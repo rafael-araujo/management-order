@@ -11,10 +11,10 @@ import org.springframework.context.annotation.ComponentScan;
 		"com.hexagonal.template.infrastructure.internal",
 		"com.hexagonal.template.domain.model",
 		"com.hexagonal.template.application"})
-public class HexagonalApplication {
+public class OrderManagementlApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(HexagonalApplication.class, args);
+		SpringApplication.run(OrderManagementlApplication.class, args);
 	}
 
 }

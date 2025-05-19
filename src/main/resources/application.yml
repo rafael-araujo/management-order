@@ -38,13 +38,6 @@ logging:
 #    org.springframework.boot: DEBUG
 
 management:
-  #  datadog:
-  #    metrics:
-  #      export:
-  #        api-key: ${DATADOG_API_KEY:default-api-key-here}
-  #        application-key: ${DATADOG_APPLICATION_KEY:default-application-key-here}
-  #        step: 10s
-  #        enabled: true
   endpoints:
     web:
       exposure:

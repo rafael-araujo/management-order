@@ -1,4 +1,4 @@
-package com.hexagonal.template.infrastructure.internal.handler;
+package com.hexagonal.template.application.handler;
 
 import com.hexagonal.template.domain.exception.BusinessException;
 import com.hexagonal.template.domain.model.error.ErrorResponse;

@@ -8,7 +8,6 @@ import java.util.List;
 public interface OrderService {
 
     OrderResponse create(OrderRequest request);
-    void update(OrderRequest request);
     List<OrderResponse> findAll();
     OrderResponse findById(OrderRequest request);
     void delete(OrderRequest request);

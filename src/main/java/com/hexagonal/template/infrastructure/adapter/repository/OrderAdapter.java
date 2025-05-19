@@ -65,13 +65,6 @@ public class OrderAdapter implements OrderPort {
     }
 
     @Override
-    public void update(OrderModel model) {
-        OrderEntity entity = mapper.toEntity(model);
-        entity.setUpdateDate(Instant.now());
-        orderRepository.save(mapper.toEntity(model));
-    }
-
-    @Override
     public List<OrderModel> findAll(OrderModel model) {
         return orderRepository.findAll().stream().map(mapper::toModel).toList();
     }

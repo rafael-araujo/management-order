@@ -13,7 +13,7 @@ RUN apt-get update && apt-get install -y git
 
 # Clone o repositório do GitHub (use as variáveis de ambiente se fornecidas)
 RUN if [ -n "$GITHUB_USERNAME" ] && [ -n "$GITHUB_TOKEN" ]; then \
-    git clone https://$GITHUB_USERNAME:$GITHUB_TOKEN@github.com/rafael-araujo/order-management.git .; \
+    git clone https://$GITHUB_USERNAME:$GITHUB_TOKEN@github.com/rafael-araujo/management-order.git .; \
   else \
     git clone https://github.com/rafael-araujo/order-management.git .; \
   fi

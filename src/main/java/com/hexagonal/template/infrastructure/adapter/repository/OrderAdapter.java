@@ -16,6 +16,7 @@ import org.springframework.stereotype.Component;
 import java.math.BigDecimal;
 import java.time.Instant;
 import java.util.List;
+import java.util.Optional;
 
 @Component
 public class OrderAdapter implements OrderPort {
@@ -77,20 +78,29 @@ public class OrderAdapter implements OrderPort {
 
     @Override
     public OrderModel findById(OrderModel model) {
-        return mapper.toModel(orderRepository.findById(model.getOrderId()).orElse(null));
+
+        return orderRepository.findByIdAndDeletedFalse(model.getOrderId())
+                .map(mapper::toModel)
+                .orElseGet(() -> OrderModel.builder().build());
     }
 
     @Override
     public void delete(OrderModel model) {
-        OrderEntity entity = mapper.toEntity(model);
-        entity.setRemoveDate(Instant.now());
-        entity.setDeleted(true);
-        orderRepository.save(entity);
+        Optional<OrderEntity> entity = orderRepository.findByIdAndDeletedFalse(model.getOrderId());
+        if (entity.isPresent()) {
+            entity.get().setRemoveDate(Instant.now());
+            entity.get().setDeleted(true);
+            orderRepository.save(entity.get());
+        }
     }
 
     public Boolean findBySignature(String signature){
         Instant timeMax = Instant.now();
         Instant timeMin = timeMax.minusSeconds(TIME_VERIFICATION_ORDER_IN_SECONDS);
         return orderRepository.findBySignature(signature, timeMin, timeMax);
+    }
+
+    public Boolean existById(OrderModel model){
+        return orderRepository.findByIdAndDeletedFalse(model.getOrderId()).isPresent();
     }
 }

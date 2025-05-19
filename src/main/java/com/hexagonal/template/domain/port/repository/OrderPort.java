@@ -12,5 +12,6 @@ public interface OrderPort {
     OrderModel findById(OrderModel model);
     void delete(OrderModel model);
     Boolean findBySignature(String signature);
+    Boolean existById(OrderModel model);
 
 }

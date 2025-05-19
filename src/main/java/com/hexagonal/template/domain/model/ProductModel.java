@@ -1,5 +1,6 @@
 package com.hexagonal.template.domain.model;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.hexagonal.template.infrastructure.adapter.controller.validate.OnPost;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
@@ -15,6 +16,7 @@ import java.math.BigDecimal;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class ProductModel {
 
     private Long id;

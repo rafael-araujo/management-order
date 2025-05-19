@@ -4,8 +4,7 @@ import com.hexagonal.template.domain.model.error.ErrorResponse;
 import lombok.*;
 
 
-@Getter
-@Setter
+@Data
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor

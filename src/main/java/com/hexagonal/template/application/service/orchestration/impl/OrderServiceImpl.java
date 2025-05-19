@@ -56,11 +56,14 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public OrderResponse findById(OrderRequest request) {
-        return null;
+        OrderModel model = mapper.toModel(request);
+        return mapper.toResponse(port.findById(model));
     }
 
     @Override
     public void delete(OrderRequest request) {
-
+        OrderModel model = mapper.toModel(request);
+        validateService.validateDeleteOrder(model);
+        port.delete(model);
     }
 }

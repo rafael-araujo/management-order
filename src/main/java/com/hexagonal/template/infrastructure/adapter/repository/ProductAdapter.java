@@ -46,7 +46,7 @@ public class ProductAdapter implements ProductPort {
 
     @Override
     public ProductModel findById(ProductModel model) {
-        return mapper.toModel(repository.findById(model.getProductId()).orElse(null));
+        return mapper.toModel(repository.findByIdAndDeletedFalse(model.getProductId()).orElse(null));
     }
 
     @Override

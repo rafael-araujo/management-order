@@ -6,6 +6,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import java.time.Instant;
+import java.util.Optional;
 
 @Repository
 public interface OrderJpaRepository extends JpaRepository<OrderEntity, Long> {
@@ -17,4 +18,6 @@ public interface OrderJpaRepository extends JpaRepository<OrderEntity, Long> {
             "   AND o.deleted = FALSE " +
             ") THEN TRUE ELSE FALSE END")
     Boolean findBySignature(String signature, Instant timeMin, Instant timeMax);
+
+    Optional<OrderEntity> findByIdAndDeletedFalse(Long orderId);
 }

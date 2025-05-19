@@ -5,6 +5,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
+import java.util.Optional;
+
 @Repository
 public interface ProductJpaRepository extends JpaRepository<ProductEntity, Long> {
 
@@ -14,4 +16,6 @@ public interface ProductJpaRepository extends JpaRepository<ProductEntity, Long>
             "   AND p.deleted = FALSE " +
             ") THEN TRUE ELSE FALSE END")
     Boolean existsByProductId(Long productId);
+
+    Optional<ProductEntity> findByIdAndDeletedFalse(Long productId);
 }

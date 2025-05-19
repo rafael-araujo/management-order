@@ -37,4 +37,15 @@ public class OrderValidateServiceImpl implements OrderValidateService {
                 .build());
         }
     }
+
+    public void validateDeleteOrder(OrderModel model){
+
+        if (!port.existById(model)){
+            throw new BusinessException(ErrorResponse.builder()
+                .title("Pedido não encontrado")
+                .description("O pedido não existe, favor verificar!")
+                .status(HttpStatus.NOT_FOUND.value())
+                .build());
+        }
+    }
 }

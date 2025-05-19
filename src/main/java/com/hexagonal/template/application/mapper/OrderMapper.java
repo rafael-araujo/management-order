@@ -49,6 +49,7 @@ public interface OrderMapper {
         OrderModel model = OrderModel.builder().build();
 
         model.setOrderId(entity.getId());
+        model.setAmount(entity.getAmount());
         model.setUserId(entity.getUserId());
         model.setProducts(new ArrayList<>());
 

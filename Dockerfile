@@ -31,4 +31,4 @@ ENV SPRING_PROFILES_ACTIVE=default
 EXPOSE 8080
 
 # Comando para executar a aplicação Spring Boot
-CMD ["java", "-jar", "target/*.jar"]
+CMD ["java", "-jar", "target/order-management-0.0.1.jar"]

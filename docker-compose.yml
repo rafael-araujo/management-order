@@ -1,0 +1,53 @@
+version: '3.8'
+services:
+  # Serviço para o seu banco de dados (exemplo: PostgreSQL)
+  db:
+    image: postgres:13
+    container_name: order-db
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: order_database
+    ports:
+      - "5432:5432"
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    networks:
+      - order-network
+
+  # Serviço para o RabbitMQ
+  rabbitmq:
+    image: rabbitmq:3.9-management
+    container_name: order-rabbitmq
+    ports:
+      - "5672:5672"
+      - "15672:15672" # Porta da interface de gerenciamento
+    networks:
+      - order-network
+
+  # Serviço para a sua aplicação Spring Boot
+  app:
+    image: management-order-app # O nome da imagem que você criou com o Dockerfile
+    container_name: management-order-service
+    ports:
+      - "8080:8080" # Mapeie a porta da sua aplicação
+    environment:
+      SPRING_PROFILES_ACTIVE: docker # Opcional: defina um perfil específico para Docker
+      SPRING_DATASOURCE_URL: jdbc:postgresql://order-db:5432/order_database
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: postgres
+      SPRING_RABBITMQ_HOST: order-rabbitmq
+      SPRING_RABBITMQ_PORT: 5672
+      # Outras variáveis de ambiente da sua aplicação
+    depends_on:
+      - db
+      - rabbitmq
+    networks:
+      - order-network
+
+networks:
+  order-network:
+    driver: bridge
+
+volumes:
+  db_data:

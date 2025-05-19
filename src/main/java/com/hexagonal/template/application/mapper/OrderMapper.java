@@ -50,6 +50,7 @@ public interface OrderMapper {
 
         model.setOrderId(entity.getId());
         model.setUserId(entity.getUserId());
+        model.setProducts(new ArrayList<>());
 
         entity.getOrdersAndProducts().forEach( item -> {
             ProductModel product = ProductModel.builder()

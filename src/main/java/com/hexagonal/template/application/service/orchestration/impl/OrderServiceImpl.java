@@ -30,7 +30,7 @@ public class OrderServiceImpl implements OrderService {
     @Override
     public OrderResponse create(OrderRequest request) {
         OrderModel model = mapper.toModel(request);
-//        validateService.validateOrder(model);
+        validateService.validateOrder(model);
         return mapper.toResponse(port.create(model));
     }
 

@@ -11,5 +11,6 @@ public interface OrderPort {
     List<OrderModel> findAll(OrderModel model);
     OrderModel findById(OrderModel model);
     void delete(OrderModel model);
+    Boolean findBySignature(String signature);
 
 }

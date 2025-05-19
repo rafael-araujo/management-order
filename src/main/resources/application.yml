@@ -38,6 +38,8 @@ logging:
 #    org.springframework.boot: DEBUG
 
 management:
+  parameters:
+    time-verification: ${TIME_VERIFICATION_SECONDS:3600}
   endpoints:
     web:
       exposure:

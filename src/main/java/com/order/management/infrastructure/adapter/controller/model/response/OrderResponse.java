@@ -1,4 +1,4 @@
-package com.order.management.infrastructure.adapter.model.response;
+package com.order.management.infrastructure.adapter.controller.model.response;
 
 
 import com.fasterxml.jackson.annotation.JsonInclude;

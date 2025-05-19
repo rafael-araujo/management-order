@@ -1,5 +1,6 @@
 package com.order.management.application.mapper;
 
+
 import com.order.management.domain.model.OrderModel;
 import com.order.management.domain.model.ProductModel;
 import com.order.management.infrastructure.adapter.controller.model.request.OrderRequest;
@@ -15,7 +16,7 @@ import java.util.List;
 @Mapper(componentModel = "spring")
 public interface OrderMapper {
 
-//    OrderModel toModel(OrderEntity entity);
+    //    OrderModel toModel(OrderEntity entity);
     OrderModel toModel(OrderRequest request);
     OrderResponse toResponse(OrderModel model);
 
@@ -55,11 +56,11 @@ public interface OrderMapper {
 
         entity.getOrdersAndProducts().forEach( item -> {
             ProductModel product = ProductModel.builder()
-                .productId(item.getProduct().getProductId())
-                .productName(item.getProduct().getProductName())
-                .price(item.getPrice())
-                .quantity(item.getQuantity())
-                .build();
+                    .productId(item.getProduct().getProductId())
+                    .productName(item.getProduct().getProductName())
+                    .price(item.getPrice())
+                    .quantity(item.getQuantity())
+                    .build();
 
             model.getProducts().add(product);
         });

@@ -3,6 +3,8 @@ package com.order.management.infrastructure.adapter.model.response;
 import com.order.management.domain.model.ProductModel;
 import com.order.management.infrastructure.adapter.controller.model.response.OrderResponse;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.math.BigDecimal;
 import java.util.Collections;
@@ -11,6 +13,7 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 
+@ExtendWith(MockitoExtension.class)
 public class OrderResponseTest {
 
     @Test

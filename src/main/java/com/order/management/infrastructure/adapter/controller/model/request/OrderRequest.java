@@ -1,4 +1,4 @@
-package com.order.management.infrastructure.adapter.model.request;
+package com.order.management.infrastructure.adapter.controller.model.request;
 
 import com.order.management.domain.model.ProductModel;
 import com.order.management.infrastructure.adapter.controller.validate.OnPost;

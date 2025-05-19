@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Nome da imagem da sua aplicação
-IMAGE_NAME="management-order-app"
+IMAGE_NAME="order-management-app"
 
 # Comando para construir a imagem Docker
 echo "Construindo a imagem Docker: $IMAGE_NAME"

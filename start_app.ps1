@@ -1,5 +1,5 @@
 # Nome da imagem da sua aplicação
-$ImageName = "management-order-app"
+$ImageName = "order-management-app"
 
 # Comando para construir a imagem Docker
 Write-Host "Construindo a imagem Docker: $ImageName"

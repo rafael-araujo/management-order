@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.management.order</groupId>
-	<artifactId>management-order</artifactId>
+	<artifactId>order-management</artifactId>
 	<version>0.0.1</version>
-	<name>Management Order</name>
+	<name>Order Management</name>
 	<description>This is a sales order management application</description>
 	<properties>
 		<java.version>21</java.version>

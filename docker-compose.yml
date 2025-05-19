@@ -27,8 +27,8 @@ services:
 
   # Serviço para a sua aplicação Spring Boot
   app:
-    image: management-order-app # O nome da imagem que você criou com o Dockerfile
-    container_name: management-order-service
+    image: order-management-app # O nome da imagem que você criou com o Dockerfile
+    container_name: order-management-service
     ports:
       - "8080:8080" # Mapeie a porta da sua aplicação
     environment:

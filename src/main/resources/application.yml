@@ -25,18 +25,20 @@ spring:
       order: ${ROUTING_KEY_DLQ:dlq.routing.key}
 
   datasource:
-    url: jdbc:postgresql://${SPRING_DATASOURCE_HOST:order-db}:${SPRING_DATASOURCE_PORT:5432}/${SPRING_DATASOURCE_DATABASE:order_database}
+#    url: jdbc:postgresql://${SPRING_DATASOURCE_HOST:localhost}:${SPRING_DATASOURCE_PORT:5432}/${SPRING_DATASOURCE_DATABASE:order_database}
+    url: jdbc:postgresql://localhost:5432/order_database
+
     username: ${SPRING_DATASOURCE_USERNAME:postgres}
     password: ${SPRING_DATASOURCE_PASSWORD:postgres}
     driver-class-name: org.postgresql.Driver
   jpa:
     database-platform: org.hibernate.dialect.PostgreSQLDialect
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
     hibernate:
       ddl-auto: none
     show-sql: false
-    properties:
-      hibernate:
-        format_sql: true
 
 factory:
   url: http://localhost:7455/example

@@ -12,6 +12,7 @@ services:
       - "5432:5432"
     volumes:
       - db_data:/var/lib/postgresql/data
+      - ./docker/postgres:/docker-entrypoint-initdb.d
     networks:
       - order-network
 
@@ -38,6 +39,7 @@ services:
       SPRING_DATASOURCE_PASSWORD: postgres
       SPRING_RABBITMQ_HOST: order-rabbitmq
       SPRING_RABBITMQ_PORT: 5672
+      logging.level.org.springframework: DEBUG
       # Outras variáveis de ambiente da sua aplicação
     depends_on:
       - db

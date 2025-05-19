@@ -13,6 +13,16 @@ spring:
     port: 5672
     username: guest
     password: guest
+    virtual-host: /
+    queue:
+      order:
+        input: ${QUEUE_INPUT_ORDER:input_order}
+        input-dlq: ${QUEUE_INPUT_ORDER:input_order_dlq}
+        output: ${QUEUE_OUTPUT_ORDER:output_order}
+    exchange:
+      order: ${DEAD_LETTER_EXCHANGE:dead_letter_exchange}
+    routing-key:
+      order: ${ROUTING_KEY_DLQ:dlq.routing.key}
 
   datasource:
     url: jdbc:h2:mem:test

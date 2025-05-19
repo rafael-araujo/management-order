@@ -33,13 +33,6 @@ public class ProductAdapter implements ProductPort {
     }
 
     @Override
-    public void update(ProductModel model) {
-        ProductEntity entity = mapper.toEntity(model);
-        entity.setUpdateDate(Instant.now());
-        repository.save(mapper.toEntity(model));
-    }
-
-    @Override
     public List<ProductModel> findAll(ProductModel model) {
         return repository.findAll().stream().map(mapper::toModel).toList();
     }

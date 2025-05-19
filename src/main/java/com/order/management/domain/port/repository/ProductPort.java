@@ -7,7 +7,6 @@ import java.util.List;
 public interface ProductPort {
 
     ProductModel create(ProductModel model);
-    void update(ProductModel model);
     List<ProductModel> findAll(ProductModel model);
     ProductModel findById(ProductModel model);
     void delete(ProductModel model);

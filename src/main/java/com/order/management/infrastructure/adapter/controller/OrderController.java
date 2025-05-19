@@ -1,9 +1,9 @@
 package com.order.management.infrastructure.adapter.controller;
 
 import com.order.management.application.service.orchestration.OrderService;
+import com.order.management.infrastructure.adapter.controller.validate.OnPost;
 import com.order.management.infrastructure.adapter.controller.model.request.OrderRequest;
 import com.order.management.infrastructure.adapter.controller.model.response.OrderResponse;
-import com.order.management.infrastructure.adapter.controller.validate.OnPost;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,7 +17,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.net.URI;
-import java.util.List;
 
 @RestController
 @RequestMapping("/api/order")
@@ -31,11 +30,6 @@ public class OrderController {
         OrderResponse response = service.create(request);
         return ResponseEntity.created(URI.create(
                 String.format("/api/order/%d", response.getOrderId()))).build();
-    }
-
-    @GetMapping()
-    public ResponseEntity<List<OrderResponse>> findAll() {
-        return new ResponseEntity<>(service.findAll(), HttpStatus.OK);
     }
 
     @GetMapping("/{orderId}")

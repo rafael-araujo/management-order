@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.management.order</groupId>
-	<artifactId>template</artifactId>
+	<artifactId>management-order</artifactId>
 	<version>0.0.1</version>
 	<name>Management Order</name>
 	<description>This is a sales order management application</description>

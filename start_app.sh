@@ -3,9 +3,9 @@
 # Nome da imagem da sua aplicação
 IMAGE_NAME="order-management-app"
 
-# Comando para construir a imagem Docker
-echo "Construindo a imagem Docker: $IMAGE_NAME"
-docker build -t "$IMAGE_NAME" .
+# Comando para construir a imagem Docker SEM CACHE
+echo "Construindo a imagem Docker (sem cache): $IMAGE_NAME"
+docker build --no-cache -t "$IMAGE_NAME" .
 
 # Verifica se a construção da imagem foi bem-sucedida
 if [ $? -ne 0 ]; then
@@ -15,9 +15,9 @@ fi
 
 echo "Imagem Docker construída com sucesso."
 
-# Comando para subir os containers com Docker Compose
-echo "Iniciando os containers com Docker Compose..."
-docker compose up -d
+# Comando para subir os containers com Docker Compose, forçando rebuild da imagem
+echo "Iniciando os containers com Docker Compose (forçando rebuild)..."
+docker compose up --build -d
 
 # Verifica se o Docker Compose subiu os containers sem erros
 if [ $? -ne 0 ]; then

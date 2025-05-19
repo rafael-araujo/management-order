@@ -18,6 +18,9 @@ RUN if [ -n "$GITHUB_USERNAME" ] && [ -n "$GITHUB_TOKEN" ]; then \
     git clone https://github.com/rafael-araujo/order-management.git .; \
   fi
 
+# forçando o fit a atualizar o repositório
+RUN git pull
+
 # Limpe o cache do apt após a instalação do git
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/log/*
 

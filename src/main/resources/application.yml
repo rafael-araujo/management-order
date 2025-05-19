@@ -27,7 +27,6 @@ spring:
   datasource:
 #    url: jdbc:postgresql://localhost:5432/order_database
     url: jdbc:postgresql://order-db:5432/order_database
-
     username: ${SPRING_DATASOURCE_USERNAME:postgres}
     password: ${SPRING_DATASOURCE_PASSWORD:postgres}
     driver-class-name: org.postgresql.Driver

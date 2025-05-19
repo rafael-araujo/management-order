@@ -22,7 +22,7 @@ RUN if [ -n "$GITHUB_USERNAME" ] && [ -n "$GITHUB_TOKEN" ]; then \
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/log/*
 
 # Execute o build da aplicação usando Maven
-RUN ./mvnw clean package -DskipTests
+RUN ./mvnw dependency:purge-local-repository && ./mvnw clean package -DskipTests
 
 # Defina a variável de ambiente para o perfil do Spring (opcional)
 ENV SPRING_PROFILES_ACTIVE=default

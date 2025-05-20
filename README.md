@@ -336,21 +336,38 @@ dados. Você pode testá-la de duas formas principais:
 ferramenta de sua preferência (como a interface de gerenciamento do RabbitMQ ou um script de teste) para publicar uma 
 mensagem na fila de entrada configurada para o Order Management.
 
-**Exemplo de mensagem**
-    {
-        "products" : [
-            {
-                "productId" : 321,
-                "productName": "Product 2",
-                "price" : 45,
-                "quantity" : 10
-            }
-        ],
-        "userId" : 1
-    }
+- - Exemplo de mensagem:**
+
+        {
+            "products" : [
+                {
+                    "productId" : 321,
+                    "productName": "Product 2",
+                    "price" : 45,
+                    "quantity" : 10
+                }
+            ],
+            "userId" : 1
+        }
 
 - **Fazendo um Request POST na Aplicação:** Se sua aplicação expõe uma API REST, você pode usar ferramentas como cURL, 
 Postman ou Insomnia para fazer uma requisição HTTP POST para o endpoint apropriado da sua aplicação.
 
-Pronto! Sua aplicação estará processando as mensagens ou requisições e você poderá observar o fluxo de dados 
-das filas de saída no RabbitMQ.
+- - **Exemplo de request:**
+
+        curl --location 'localhost:8080/myapp/api/order' \
+        --header 'Content-Type: application/json' \
+        --data '{
+            "products" : [
+                {
+                    "productId" : 321,
+                    "productName": "Product 2",
+                    "price" : 45,
+                     "quantity" : 10
+                }
+            ],
+            "userId" : 1
+        }'
+
+  Pronto! Sua aplicação estará processando as mensagens ou requisições e você poderá observar o fluxo de dados 
+  das filas de saída no RabbitMQ.

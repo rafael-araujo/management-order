@@ -26,3 +26,19 @@ if [ $? -ne 0 ]; then
 fi
 
 echo "Containers iniciados com sucesso!"
+
+
+# Aguarda alguns segundos para o banco de dados PostgreSQL iniciar completamente
+echo "Aguardando 10 segundos para o banco de dados iniciar..."
+sleep 10
+
+# Comando para executar o script init.sql dentro do container do PostgreSQL
+echo "Executando script de inicialização do banco de dados..."
+docker exec -it $(docker compose ps -q db) psql -U postgres -d order_database -f /docker-entrypoint-initdb.d/init.sql
+
+# Verifica se a execução do script foi bem-sucedida
+if [ $? -ne 0 ]; then
+  echo "Erro ao executar o script de inicialização do banco de dados. Verifique os logs do container 'db'."
+fi
+
+echo "Script de inicialização do banco de dados executado (se não houve erros)."

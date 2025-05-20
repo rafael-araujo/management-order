@@ -1,4 +1,4 @@
-CREATE DATABASE order_database;
+--CREATE DATABASE order_database;
 GRANT ALL PRIVILEGES ON DATABASE order_database TO postgres;
 
 CREATE TABLE td_order (

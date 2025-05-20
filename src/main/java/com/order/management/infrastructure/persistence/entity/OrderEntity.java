@@ -38,8 +38,7 @@ public class OrderEntity {
     @Column(name = "amount")
     private BigDecimal amount;
 
-    //@Column(name = "signature", columnDefinition = "BYTEA(32)") // Para PostgreSQL
-    @Column(name = "signature", columnDefinition = "BINARY(32)")
+    @Column(name = "signature", columnDefinition = "BYTEA(32)")
     @Convert(converter = ConverterUtils.class)
     private String signature;
 
